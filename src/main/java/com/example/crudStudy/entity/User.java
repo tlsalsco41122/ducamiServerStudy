@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_user")
 @Getter
 @NoArgsConstructor
-@Builder
 @AllArgsConstructor
 public class User {
 
@@ -29,4 +28,16 @@ public class User {
     @Column(nullable = false)
     private String userPw;
 
+    public void changeUserId(String data){
+        this.userId = data;
+    }
+    public void changeUserPw(String data){
+        this.userPw = data;
+    }
+
+    @Builder
+    public User(String userId, String userPw) {
+        this.userId = userId;
+        this.userPw = userPw;
+    }
 }
